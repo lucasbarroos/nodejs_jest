@@ -8,9 +8,10 @@ const URL = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 const connectionOptions = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useFindAndModify: true,
 };
 
-const connect = () => {
+const connect = async () => {
   mongoose.connect(URL, connectionOptions, (err) => {
     if (err) console.log('Error to connect the database');
     console.log('Mongodb connected');
